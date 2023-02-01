@@ -32,3 +32,32 @@ and people_fully_vaccinated is not null
 and location like 'India%'
 
 
+select location,population,max(total_boosters) AS total_boosters from vaccinations
+where continent is not null
+and location like 'India%'
+group by location,population
+order by max(total_boosters)
+
+
+
+
+select location,population,max(total_boosters) AS total_boosters 
+from vaccinations
+where continent is not null
+and location like 'India%'
+group by location,population
+order by MAX(total_boosters)
+
+
+
+
+select location,population,max(total_boosters) AS total_boosters 
+from vaccinations
+where continent is not null
+--and location like 'India%'
+group by location,population
+order by MAX(total_boosters) desc
+
+
+select * from vaccinations
+
