@@ -101,3 +101,28 @@ order by MAX(total_boosters) desc
 
 select * from vaccinations
 
+
+
+select population,location,date,people_fully_vaccinated_per_hundred from vaccinations
+where continent is not null
+and location like 'India'
+
+-----some world indexs ----
+
+
+select location,max(stringency_index) as stringency_index,
+max(population_density) as population_density,
+max(median_age) as median_age,max(aged_65_older) as aged_65_older,
+max(aged_70_older) as aged_70_older,max(gdp_per_capita) as gdp_per_capita,
+max(extreme_poverty) as extreme_poverty,max(cardiovasc_death_rate) as cardiovasc_death_rate,
+max(female_smokers) as female_smokers,max(male_smokers) as male_smokers,
+max(handwashing_facilities) as handwashing_facilities,
+max(hospital_beds_per_thousand) as hospital_beds_per_thousand,
+max(life_expectancy) as life_expectancy,
+max(human_development_index) as human_development_index
+from vaccinations
+where continent is not null
+group by location
+
+
+
