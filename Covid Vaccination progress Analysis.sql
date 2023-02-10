@@ -13,6 +13,19 @@ from vaccinations
 where location like 'India%'
 group by location,population
 
+
+-----------total vaccinated and boosters percentage people in the world--
+select location,population,Max(people_fully_vaccinated) AS total_people_fully_vaccinated
+,(MAX(people_fully_vaccinated)/population)*100 AS vaccinated_population_percentage,
+max(total_boosters) AS total_boosters,
+(max(total_boosters)/population)*100 as boosters_dose_percentage 
+from vaccinations
+where location like 'World%'
+group by location,population
+
+
+
+
 ---total booster dose percentage in india---
 
 select location,population,max(total_boosters) AS total_boosters,
